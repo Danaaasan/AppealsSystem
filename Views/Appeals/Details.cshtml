@@ -1,0 +1,39 @@
+@model AppealsSystem.Models.Appeal
+@{ ViewData["Title"] = "Обращение"; }
+<div class="container py-4">
+    <h1 class="fw-bold">Обращение @Model.RegistrationNumber</h1>
+    <div class="card mb-4">
+        <div class="card-body">
+            <h3>@Model.Subject</h3>
+            <p class="text-muted">Заявитель: @Model.Citizen?.FullName · @Model.Citizen?.Phone</p>
+            <p class="text-muted">Паспорт: @Model.Citizen?.EncryptedPassport</p>
+            <p class="text-muted">Срок: @Model.Deadline.ToString("dd.MM.yyyy") · Статус: @Model.Status</p>
+            <hr />
+            <p>@Model.Content</p>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4>Ответы</h4>
+            @foreach (var r in Model.Responses)
+            {
+                <div class="mb-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                    <strong>@r.AuthorId</strong> · @r.CreatedAt.ToString("dd.MM.yyyy HH:mm")
+                    <p>@r.Content</p>
+                </div>
+            }
+            @if (User.IsInRole("Admin") || User.IsInRole("Executor"))
+            {
+                <form asp-action="AddResponse" method="post">
+                    <input type="hidden" name="appealId" value="@Model.Id" />
+                    <div class="form-group">
+                        <textarea name="content" class="form-control" placeholder="Текст ответа"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Отправить ответ</button>
+                </form>
+            }
+        </div>
+    </div>
+    <a asp-action="Index" class="btn btn-outline">Назад</a>
+</div>

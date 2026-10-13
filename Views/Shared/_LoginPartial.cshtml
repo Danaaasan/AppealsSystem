@@ -1,0 +1,18 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item"><span class="nav-link">@User.Identity?.Name</span></li>
+    <li class="nav-item">
+        <form method="post" asp-area="Identity" asp-page="/Account/Logout">
+            <button type="submit" class="nav-link btn btn-link">Выйти</button>
+        </form>
+    </li>
+}
+else
+{
+    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Войти</a></li>
+    <li class="nav-item"><a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Регистрация</a></li>
+}

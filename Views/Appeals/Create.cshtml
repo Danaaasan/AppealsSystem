@@ -1,0 +1,29 @@
+@model AppealsSystem.Models.Appeal
+@{ ViewData["Title"] = "Новое обращение"; }
+<div class="container py-4">
+    <div class="form-card">
+        <h2 class="mb-4">Подать обращение</h2>
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label asp-for="Subject">Тема</label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category">Категория</label>
+                <select asp-for="Category" class="form-control">
+                    <option>Жалоба</option>
+                    <option>Предложение</option>
+                    <option>Запрос информации</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content">Текст обращения</label>
+                <textarea asp-for="Content" class="form-control"></textarea>
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn">Отправить</button>
+            <a asp-action="My" class="btn btn-outline">Назад</a>
+        </form>
+    </div>
+</div>

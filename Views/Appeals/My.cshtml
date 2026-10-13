@@ -1,0 +1,23 @@
+@model List<AppealsSystem.Models.Appeal>
+@{ ViewData["Title"] = "Мои обращения"; }
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fw-bold">Мои обращения</h1>
+        <a asp-action="Create" class="btn">Подать обращение</a>
+    </div>
+    <div class="row g-4">
+    @foreach (var a in Model)
+    {
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <span class="badge badge-new mb-2">@a.Status</span>
+                    <h5 class="card-title">@a.Subject</h5>
+                    <p class="text-muted">@a.RegistrationNumber · @a.CreatedAt.ToString("dd.MM.yyyy")</p>
+                    <a asp-action="Details" asp-route-id="@a.Id" class="btn btn-sm btn-outline">Подробнее</a>
+                </div>
+            </div>
+        </div>
+    }
+    </div>
+</div>
