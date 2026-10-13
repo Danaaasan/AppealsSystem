@@ -1,7 +1,6 @@
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/appsettings.Development.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/appsettings.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/AppealsSystem.staticwebassets.runtime.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/AppealsSystem.staticwebassets.endpoints.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/AppealsSystem
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/AppealsSystem.deps.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/AppealsSystem.runtimeconfig.json
@@ -118,7 +117,6 @@
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/runtimes/win-x64/native/e_sqlite3.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/runtimes/win-x86/native/e_sqlite3.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.csproj.AssemblyReference.cache
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/rpswa.dswa.cache.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.GeneratedMSBuildEditorConfig.editorconfig
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.AssemblyInfoInputs.cache
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.AssemblyInfo.cs
@@ -128,18 +126,11 @@
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.RazorAssemblyInfo.cache
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.RazorAssemblyInfo.cs
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.sourcelink.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/rjimswa.dswa.cache.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/scopedcss/bundle/AppealsSystem.styles.css
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/scopedcss/projectbundle/AppealsSystem.bundle.scp.css
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets.build.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets.build.json.cache
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets.development.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets.build.endpoints.json
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/swae.build.ex.cache
-/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsS.FC3F8E50.Up2Date
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/refint/AppealsSystem.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.pdb
@@ -153,3 +144,9 @@
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/System.Security.Cryptography.Xml.dll
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets/msbuild.AppealsSystem.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets/msbuild.build.AppealsSystem.props
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.AppealsSystem.props
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.AppealsSystem.props
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/staticwebassets.pack.json
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.csproj.CopyComplete

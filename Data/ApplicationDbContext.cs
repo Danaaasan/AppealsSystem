@@ -15,8 +15,6 @@ namespace AppealsSystem.Data
         public DbSet<Response> Responses { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
-
-        // Для хранения ключей Data Protection в БД
         public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
     }
 }

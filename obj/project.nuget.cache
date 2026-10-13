@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o4eyKQ+0ZiE=",
+  "dgSpecHash": "NUdO2DPjhjGAOQ7c4/sTprx6LYYGNtHZZaw71YNi/jygPUzwBqQSkI3b0BL5ua1JAnTCWmX9H8hA6VkDHhpVsQ==",
   "success": true,
   "projectFilePath": "/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/AppealsSystem.csproj",
   "expectedPackageFiles": [
@@ -65,10 +65,7 @@
     "/Users/dana_o_san/.nuget/packages/system.security.cryptography.pkcs/8.0.1/system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
     "/Users/dana_o_san/.nuget/packages/system.security.cryptography.xml/8.0.2/system.security.cryptography.xml.8.0.2.nupkg.sha512",
     "/Users/dana_o_san/.nuget/packages/system.text.encoding.codepages/6.0.0/system.text.encoding.codepages.6.0.0.nupkg.sha512",
-    "/Users/dana_o_san/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512",
-    "/Users/dana_o_san/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.31/microsoft.aspnetcore.app.ref.8.0.31.nupkg.sha512",
-    "/Users/dana_o_san/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.31/microsoft.netcore.app.host.osx-arm64.8.0.31.nupkg.sha512",
-    "/Users/dana_o_san/.nuget/packages/microsoft.netcore.app.ref/8.0.31/microsoft.netcore.app.ref.8.0.31.nupkg.sha512"
+    "/Users/dana_o_san/.nuget/packages/system.threading.channels/6.0.0/system.threading.channels.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
