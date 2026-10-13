@@ -1,0 +1,48 @@
+@page
+@model AppealsSystem.Areas.Identity.Pages.Account.LoginModel
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<div class="login-wrap">
+    <div class="login-card">
+        <div class="login-logo">АИС Обращений</div>
+        <p class="login-sub">Вход в систему</p>
+
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
+            <div class="form-group" style="text-align:left;">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" class="form-control" placeholder="admin@appeals.local" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="text-align:left;">
+                <label asp-for="Input.Password">Пароль</label>
+                <input asp-for="Input.Password" class="form-control" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" style="text-align:left;">
+                <label style="display:flex; align-items:center; gap:0.5rem; text-transform:none; font-size:0.9rem;">
+                    <input asp-for="Input.RememberMe" style="width:auto;" />
+                    Запомнить меня
+                </label>
+            </div>
+
+            <button type="submit" class="btn" style="width:100%; margin-top:1rem;">
+                Войти
+            </button>
+        </form>
+
+        <p class="text-muted mt-3" style="font-size:0.85rem;">
+            Нет аккаунта?
+            <a asp-page="./Register">Зарегистрироваться</a>
+        </p>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

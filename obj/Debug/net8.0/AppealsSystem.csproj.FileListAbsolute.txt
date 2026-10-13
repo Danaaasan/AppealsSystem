@@ -145,3 +145,11 @@
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.pdb
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/AppealsSystem.genruntimeconfig.cache
 /Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/obj/Debug/net8.0/ref/AppealsSystem.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/Microsoft.AspNetCore.DataProtection.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/Microsoft.AspNetCore.DataProtection.EntityFrameworkCore.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/System.Security.Cryptography.Pkcs.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/System.Security.Cryptography.Xml.dll
+/Users/dana_o_san/Documents/4 курс/дипломчек/курсовая МОЯ/AppealsSystem/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Security.Cryptography.Pkcs.dll

@@ -1,10 +1,11 @@
 using AppealsSystem.Models;
+using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AppealsSystem.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext, IDataProtectionKeyContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
@@ -14,5 +15,8 @@ namespace AppealsSystem.Data
         public DbSet<Response> Responses { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+
+        // Для хранения ключей Data Protection в БД
+        public DbSet<DataProtectionKey> DataProtectionKeys { get; set; }
     }
 }
