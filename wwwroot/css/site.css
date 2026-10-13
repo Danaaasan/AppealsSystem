@@ -390,6 +390,29 @@ textarea.form-control {
     font-size: 0.9rem;
 }
 
+/* Identity pages */
+.container > .row > .col-md-4,
+.container > .row > .col-md-6,
+.container > .row > .col-lg-4 {
+    background: transparent;
+}
+.card.bg-white, .card.bg-light {
+    background: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border: 1px solid rgba(142, 68, 173, 0.3) !important;
+    border-radius: 14px !important;
+}
+.card.bg-white h1, .card.bg-white h2, .card.bg-white h3,
+.card.bg-white label {
+    color: var(--text-main) !important;
+}
+.bg-white, .bg-light {
+    background: transparent !important;
+}
+#account, .container.mt-5 {
+    color: var(--text-main);
+}
+
 /* ========== ФУТЕР ========== */
 footer {
     text-align: center;

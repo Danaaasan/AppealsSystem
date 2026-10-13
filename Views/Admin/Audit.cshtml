@@ -1,0 +1,35 @@
+@model List<AppealsSystem.Models.AuditLog>
+@{
+    ViewData["Title"] = "Журнал аудита";
+}
+
+<div class="container py-4">
+    <h1 class="fw-bold mb-4">Журнал аудита</h1>
+    <p class="text-muted">Последние 200 действий в системе</p>
+
+    <div class="table-wrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Дата</th>
+                    <th>Пользователь</th>
+                    <th>Действие</th>
+                    <th>Сущность</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var log in Model)
+            {
+                <tr>
+                    <td>@log.Timestamp.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss")</td>
+                    <td>@log.UserName</td>
+                    <td><span class="badge badge-new">@log.Action</span></td>
+                    <td>@log.EntityName</td>
+                    <td>@log.EntityId</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

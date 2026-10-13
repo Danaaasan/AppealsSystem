@@ -1,0 +1,41 @@
+@model AppealsSystem.Models.Appeal
+@{
+    ViewData["Title"] = "Назначение исполнителя";
+    var executors = ViewBag.Executors as IList<Microsoft.AspNetCore.Identity.IdentityUser> ?? new List<Microsoft.AspNetCore.Identity.IdentityUser>();
+}
+
+<div class="container py-4">
+    <div class="form-card">
+        <h2 class="mb-4">Назначить исполнителя</h2>
+        <p class="text-muted">
+            Обращение <strong>@Model.RegistrationNumber</strong> — @Model.Subject
+        </p>
+
+        <form asp-action="Assign" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            <div class="form-group">
+                <label>Исполнитель</label>
+                <select name="executorId" class="form-control" required>
+                    <option value="">— выберите —</option>
+                    @foreach (var ex in executors)
+                    {
+                        <option value="@ex.Id" selected="@(Model.AssignedToUserId == ex.Id)">
+                            @ex.Email
+                        </option>
+                    }
+                </select>
+            </div>
+
+            @if (!executors.Any())
+            {
+                <p class="text-danger">
+                    Нет пользователей с ролью «Executor». Назначьте роль через админ-панель.
+                </p>
+            }
+
+            <button type="submit" class="btn">Назначить</button>
+            <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-outline">Отмена</a>
+        </form>
+    </div>
+</div>

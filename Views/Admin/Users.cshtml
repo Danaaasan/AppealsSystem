@@ -1,0 +1,72 @@
+@model List<(Microsoft.AspNetCore.Identity.IdentityUser User, IList<string> Roles)>
+@{
+    ViewData["Title"] = "Пользователи";
+    var allRoles = ViewBag.AllRoles as List<string> ?? new List<string>();
+}
+
+<div class="container py-4">
+    <h1 class="fw-bold mb-4">Пользователи системы</h1>
+
+    <div class="table-wrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Роли</th>
+                    <th>Назначить роль</th>
+                    <th>Снять роль</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.User.Email</td>
+                    <td>
+                        @if (item.Roles.Any())
+                        {
+                            foreach (var r in item.Roles)
+                            {
+                                <span class="badge badge-new">@r</span>
+                            }
+                        }
+                        else
+                        {
+                            <span class="text-muted">нет ролей</span>
+                        }
+                    </td>
+                    <td>
+                        <form asp-action="AddRole" method="post" class="d-flex gap-2">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="userId" value="@item.User.Id" />
+                            <select name="role" class="form-control" style="width:auto;">
+                                @foreach (var role in allRoles)
+                                {
+                                    <option value="@role">@role</option>
+                                }
+                            </select>
+                            <button type="submit" class="btn btn-sm">+</button>
+                        </form>
+                    </td>
+                    <td>
+                        @if (item.Roles.Any())
+                        {
+                            <form asp-action="RemoveRole" method="post" class="d-flex gap-2">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="userId" value="@item.User.Id" />
+                                <select name="role" class="form-control" style="width:auto;">
+                                    @foreach (var r in item.Roles)
+                                    {
+                                        <option value="@r">@r</option>
+                                    }
+                                </select>
+                                <button type="submit" class="btn btn-sm btn-outline">−</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

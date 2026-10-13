@@ -1,39 +1,156 @@
 @model AppealsSystem.Models.Appeal
-@{ ViewData["Title"] = "Обращение"; }
+@{
+    ViewData["Title"] = "Обращение";
+    var executors = ViewBag.Executors as IList<Microsoft.AspNetCore.Identity.IdentityUser>;
+    var isStaff = User.IsInRole("Admin") || User.IsInRole("Specialist");
+    var isExecutor = User.IsInRole("Executor");
+}
+
 <div class="container py-4">
-    <h1 class="fw-bold">Обращение @Model.RegistrationNumber</h1>
-    <div class="card mb-4">
-        <div class="card-body">
-            <h3>@Model.Subject</h3>
-            <p class="text-muted">Заявитель: @Model.Citizen?.FullName · @Model.Citizen?.Phone</p>
-            <p class="text-muted">Паспорт: @Model.Citizen?.EncryptedPassport</p>
-            <p class="text-muted">Срок: @Model.Deadline.ToString("dd.MM.yyyy") · Статус: @Model.Status</p>
-            <hr />
-            <p>@Model.Content</p>
+    <div class="d-flex justify-content-between align-items-start mb-3 flex-wrap gap-2">
+        <div>
+            <h1 class="fw-bold mb-1">Обращение @Model.RegistrationNumber</h1>
+            <p class="text-muted mb-0">@Model.Subject</p>
+        </div>
+        <div>
+            @if (Model.Status == "Зарегистрировано")
+            {
+                <span class="badge badge-new">@Model.Status</span>
+            }
+            else if (Model.Status == "На исполнении")
+            {
+                <span class="badge badge-progress">@Model.Status</span>
+            }
+            else if (Model.Status == "Ответ подготовлен")
+            {
+                <span class="badge badge-review">@Model.Status</span>
+            }
+            else if (Model.Status == "Закрыто")
+            {
+                <span class="badge badge-done">@Model.Status</span>
+            }
+            else
+            {
+                <span class="badge badge-new">@Model.Status</span>
+            }
         </div>
     </div>
 
-    <div class="card mb-4">
+    <!-- Основная информация -->
+    <div class="card mb-3">
         <div class="card-body">
-            <h4>Ответы</h4>
-            @foreach (var r in Model.Responses)
-            {
-                <div class="mb-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.05);">
-                    <strong>@r.AuthorId</strong> · @r.CreatedAt.ToString("dd.MM.yyyy HH:mm")
-                    <p>@r.Content</p>
+            <div class="row">
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Заявитель</div>
+                    <div>@Model.Citizen?.FullName</div>
                 </div>
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Телефон</div>
+                    <div>@Model.Citizen?.Phone</div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Паспорт</div>
+                    <div>@Model.Citizen?.EncryptedPassport</div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Категория</div>
+                    <div>@Model.Category</div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Дата подачи</div>
+                    <div>@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</div>
+                </div>
+                <div class="col-md-6 mb-2">
+                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase;">Срок рассмотрения</div>
+                    <div>@Model.Deadline.ToString("dd.MM.yyyy")</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Текст обращения -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4 class="mb-3">Текст обращения</h4>
+            <p style="white-space: pre-wrap;">@Model.Content</p>
+        </div>
+    </div>
+
+    <!-- Панель админа / специалиста -->
+    @if (isStaff)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="mb-3">Действия</h4>
+                <div class="d-flex flex-wrap gap-2">
+                    <a asp-action="Assign" asp-route-id="@Model.Id" class="btn btn-sm">Назначить исполнителя</a>
+
+                    <form asp-action="ChangeStatus" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <select name="status" class="form-control d-inline-block" style="width:auto;" onchange="this.form.submit()">
+                            <option value="">— сменить статус —</option>
+                            <option value="Зарегистрировано">Зарегистрировано</option>
+                            <option value="На исполнении">На исполнении</option>
+                            <option value="Ответ подготовлен">Ответ подготовлен</option>
+                            <option value="Закрыто">Закрыто</option>
+                        </select>
+                    </form>
+
+                    <form asp-action="Close" method="post" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="id" value="@Model.Id" />
+                        <button type="submit" class="btn btn-sm btn-outline">Закрыть</button>
+                    </form>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <form asp-action="Delete" method="post" class="d-inline"
+                              onsubmit="return confirm('Удалить обращение?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@Model.Id" />
+                            <button type="submit" class="btn btn-sm btn-outline">Удалить</button>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- Ответы -->
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4 class="mb-3">Ответы</h4>
+
+            @if (Model.Responses != null && Model.Responses.Any())
+            {
+                foreach (var r in Model.Responses)
+                {
+                    <div class="mb-3 pb-2" style="border-bottom:1px solid rgba(255,255,255,0.05);">
+                        <strong>@r.AuthorId</strong>
+                        <span class="text-muted"> · @r.CreatedAt.ToString("dd.MM.yyyy HH:mm")</span>
+                        <p class="mt-2 mb-0" style="white-space: pre-wrap;">@r.Content</p>
+                    </div>
+                }
             }
+            else
+            {
+                <p class="text-muted">Ответов пока нет.</p>
+            }
+
             @if (User.IsInRole("Admin") || User.IsInRole("Executor"))
             {
-                <form asp-action="AddResponse" method="post">
+                <form asp-action="AddResponse" method="post" class="mt-3">
+                    @Html.AntiForgeryToken()
                     <input type="hidden" name="appealId" value="@Model.Id" />
                     <div class="form-group">
-                        <textarea name="content" class="form-control" placeholder="Текст ответа"></textarea>
+                        <textarea name="content" class="form-control" placeholder="Введите текст ответа..." required></textarea>
                     </div>
                     <button type="submit" class="btn">Отправить ответ</button>
                 </form>
             }
         </div>
     </div>
-    <a asp-action="Index" class="btn btn-outline">Назад</a>
+
+    <a asp-action="Index" class="btn btn-outline">← Назад к списку</a>
 </div>

@@ -1,0 +1,42 @@
+@{
+    ViewData["Title"] = "Дашборд";
+}
+
+<div class="container py-4">
+    <h1 class="fw-bold mb-4">Дашборд</h1>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-body">
+                <div class="text-muted" style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Всего обращений</div>
+                <div class="card-value">@ViewBag.Total</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="text-muted" style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Новых</div>
+                <div class="card-value purple">@ViewBag.New</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="text-muted" style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">На исполнении</div>
+                <div class="card-value yellow">@ViewBag.InProgress</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="text-muted" style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Просрочено</div>
+                <div class="card-value red">@ViewBag.Overdue</div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="text-muted" style="text-transform:uppercase; font-size:0.8rem; letter-spacing:1px;">Закрыто</div>
+                <div class="card-value green">@ViewBag.Closed</div>
+            </div>
+        </div>
+    </div>
+
+    <a asp-action="Index" class="btn">Перейти к списку обращений</a>
+</div>
