@@ -6,25 +6,20 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// База данных: SQLite локально, PostgreSQL на проде
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// ==== База данных ====
+var connectionString = builder.Environment.IsDevelopment()
+    ? "Host=localhost;Port=5432;Database=AppealsDb;Username=postgres;Password=postgres"
+    : builder.Configuration.GetConnectionString("DefaultConnection");
 
-if (builder.Environment.IsDevelopment())
-{
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseSqlite(connectionString ?? "Data Source=app.db"));
-}
-else
-{
-    builder.Services.AddDbContext<ApplicationDbContext>(options =>
-        options.UseNpgsql(connectionString));
-}
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseNpgsql(connectionString));
 
-// Data Protection: ключи в БД (одинаково и локально, и на проде)
+// ==== Data Protection: ключи в БД ====
 builder.Services.AddDataProtection()
     .PersistKeysToDbContext<ApplicationDbContext>()
     .SetApplicationName("AppealsSystem");
 
+// ==== Identity ====
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -60,7 +55,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
-// Автосоздание ролей и админа
+// ==== Автосоздание ролей и админа ====
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
